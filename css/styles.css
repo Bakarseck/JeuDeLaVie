@@ -65,12 +65,9 @@ i {
     background-color: #92b6e0;
 }
 
-/* Style pour le bouton Clear */
-.game-info button.clear {
-    background-color: #f44336;
-    color: #fff;
-}
-
-.game-info button.clear:hover {
-    background-color: #d32f2f;
+.cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
 }

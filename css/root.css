@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Press+Start+2P&display=swap');
+
+:root {
+    --primary: #2a4e97;
+    --secondary: #b0d3ff;
+    --grid-color: #7e7e7e;
+    --alive: #ffff00;
+    --text-color: #fff;
+    --primary-font: "Poppins", sans-serif;
+    --secondary-font: "Montserrat", sans-serif;
+}

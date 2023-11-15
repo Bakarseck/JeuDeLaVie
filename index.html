@@ -14,7 +14,7 @@
 <body>
     <header>
         <div class="title">
-            <h1>Game Of Life</h1>
+            <h3>Game Of Life</h3>
         </div>
     </header>
 
@@ -23,13 +23,29 @@
         <div class="grid">
 
         </div>
+        <div class="controls">
+            <div class="speed">
+                <h3>Speed</h3>
+                <input type="range" name="" id="">
+            </div>
+            <div class="grid-range">
+                <h3>Size</h3>
+                <input type="range" name="" id="">
+            </div>
+            <div class="speed">
+                <h3>Generation</h3>
+                <h3 class="generation"></h3>
+            </div>
+        </div>
+        
     </div>
 
     <div class="game-info">
-        <button class="btn"><i class="fa-sharp fa-solid fa-info"></i>Explanation</button>
-        <button class="btn"><i class="fa-sharp fa-solid fa-play"></i>Start</button>
-        <Button class="btn">Clear</Button>
+        <button class="btn" id="explain"><i class="fa-sharp fa-solid fa-info"></i>Explanation</button>
+        <button class="btn" id="play"><i class="fa-sharp fa-solid fa-play"></i>Start</button>
+        <Button class="btn" id="clear"><i class="fa-solid fa-xmark"></i>Clear</Button>
     </div>
+
 </body>
 <script src="js/index.js" type="module"></script>
 

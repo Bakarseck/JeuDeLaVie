@@ -14,18 +14,33 @@ body {
 }
 
 header {
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--primary);
     background-color: var(--secondary);
     text-align: center;
 }
 
-/* #game-container {
-    background: var(--primary);
-} */
+.game-container {
+    position: relative;
+    overflow: scroll;
+    background-image: radial-gradient(var(--primary), var(--secondary));
+}
+
+.grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgb(2,0,36);
+    transform: translate(-50%, -50%);
+}
 
 .game-info {
     background: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn {
@@ -37,15 +52,25 @@ header {
     text-decoration: none;
     cursor: pointer;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    color: var(--white);
+    background-color: var(--primary);
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
 }
 
 i {
-    margin-left: 20px;
+    margin-right: 10px;
+    color: var(--white);
 }
 
-/* Style pour le bouton Explanation */
 .game-info button.explanation {
     background-color: #2a4e97;
     color: #fff;
@@ -55,7 +80,6 @@ i {
     background-color: #1a355f;
 }
 
-/* Style pour le bouton Start */
 .game-info button.start {
     background-color: #b0d3ff;
     color: #2a4e97;
@@ -70,4 +94,22 @@ i {
     height: 20px;
     border: 1px solid #ccc;
     display: inline-block;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 25px;
+    padding: 20px 10px;
+    position: absolute;
+    background: var(--white);
+    color: var(--primary);
+    font-size: 10;
+    bottom: 10%;
+    right: 5%;
 }

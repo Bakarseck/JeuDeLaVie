@@ -16,6 +16,7 @@ export class GameOfLife {
         this.cols = cols;
         this.step = 0;
         this.grid = new Array(this.rows * this.cols).fill(false);
+        this.stable = false;
         this.createInitialGrid();
     }
 
@@ -23,11 +24,12 @@ export class GameOfLife {
      * The function "createInitialGrid" sets specific cells in a grid to be true.
      */
     createInitialGrid() {
-        this.grid[this.getIndex(5, 4)] = true;
-        this.grid[this.getIndex(5, 5)] = true;
-        this.grid[this.getIndex(6, 3)] = true;
-        this.grid[this.getIndex(6, 4)] = true;
-        this.grid[this.getIndex(7, 4)] = true;
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.cols; j++) {
+                const index = this.getIndex(i, j);
+                this.grid[index] = Math.random() < 0.5;
+            }
+        }
     }
 
     /**
@@ -40,8 +42,29 @@ export class GameOfLife {
             .join('');
 
         this.game.innerHTML = htmlString;
-        this.generation.textContent = `${this.step}`
-        this.step++
+        const text = document.querySelector('.text')
+        if (!this.stable) {
+            this.generation.textContent = `${this.step}`
+            this.step++
+        } else {
+            text.remove();
+            this.generation.textContent = `Stables après ${this.step} générations`;
+            this.generation.style.lineHeight = 1.5;
+        }
+    }
+
+    compareGrids(grid1, grid2) {
+        if (grid1.length !== grid2.length) {
+            return false;
+        }
+
+        for (let i = 0; i < grid1.length; i++) {
+            if (grid1[i] !== grid2[i]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -61,6 +84,10 @@ export class GameOfLife {
                     newGrid[index] = neighbors === 3;
                 }
             }
+        }
+
+        if (this.compareGrids(this.grid, newGrid)) {
+            this.stable = true;
         }
 
         this.grid = newGrid;
